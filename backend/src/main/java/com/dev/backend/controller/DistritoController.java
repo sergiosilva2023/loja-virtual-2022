@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/api/distritos")
+@RequestMapping("/api/distrito")
 public class DistritoController {
 
     @Autowired

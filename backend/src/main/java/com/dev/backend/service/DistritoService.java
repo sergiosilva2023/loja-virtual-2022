@@ -19,13 +19,13 @@ public class DistritoService {
     }
 
     public Distrito inserir(Distrito distrito) {
-        distrito.setDataCriacao(new Date(0));
+        distrito.setDataCriacao(new Date());
         Distrito distritoNovo = distritoRepository.saveAndFlush(distrito);
         return distritoNovo;
     }
 
     public Distrito alterar(Distrito distrito) {
-        distrito.setDataAtualizacao(new Date(0));
+        distrito.setDataAtualizacao(new Date());
         return distritoRepository.saveAndFlush(distrito);
     }
 

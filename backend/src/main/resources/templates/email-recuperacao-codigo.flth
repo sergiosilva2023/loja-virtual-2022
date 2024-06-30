@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+</head>
+<body>
+    <h2>Olá, ${nome}</h2>
+    <br/>
+    <h4>Seja bem-vindo o site da Benipesca. Vamos, de imediato dar seguimento ao seu pedido...</4>
+    <br/>
+    <p>${mensagem}</p>
+</body>
+</html>

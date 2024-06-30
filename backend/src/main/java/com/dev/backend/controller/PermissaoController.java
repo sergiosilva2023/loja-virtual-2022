@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.dev.backend.entity.Categoria;
-import com.dev.backend.service.CategoriaService;
+import com.dev.backend.entity.Permissao;
+import com.dev.backend.service.PermissaoService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,30 +14,30 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/api/categoria")
-public class CategoriaController {
+@RequestMapping("/api/permissao")
+public class PermissaoController {
 
     @Autowired
-    private CategoriaService categoriaService;
+    private PermissaoService permissaoService;
 
     @GetMapping("/")
-    public List<Categoria> buscarTodos() {
-        return categoriaService.buscarTodos();
+    public List<Permissao> buscarTodos() {
+        return permissaoService.buscarTodos();
     }
 
     @PostMapping("/")
-    public Categoria inserir(@RequestBody Categoria categoria) {
-        return categoriaService.inserir(categoria);
+    public Permissao inserir(@RequestBody Permissao permissao) {
+        return permissaoService.inserir(permissao);
     }
 
     @PutMapping("/")
-    public Categoria alterar(@RequestBody Categoria categoria) {
-        return categoriaService.alterar(categoria);
+    public Permissao alterar(@RequestBody Permissao permissao) {
+        return permissaoService.alterar(permissao);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
-        categoriaService.excluir(id);
+        permissaoService.excluir(id);
         return ResponseEntity.ok().build();
     }
 

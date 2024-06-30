@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.dev.backend.entity.Categoria;
-import com.dev.backend.service.CategoriaService;
+import com.dev.backend.entity.Cidade;
+import com.dev.backend.service.CidadeService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,30 +14,30 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/api/categoria")
-public class CategoriaController {
+@RequestMapping("/api/cidade")
+public class CidadeController {
 
     @Autowired
-    private CategoriaService categoriaService;
+    private CidadeService cidadeService;
 
     @GetMapping("/")
-    public List<Categoria> buscarTodos() {
-        return categoriaService.buscarTodos();
+    public List<Cidade> buscarTodos() {
+        return cidadeService.buscarTodos();
     }
 
     @PostMapping("/")
-    public Categoria inserir(@RequestBody Categoria categoria) {
-        return categoriaService.inserir(categoria);
+    public Cidade inserir(@RequestBody Cidade cidade) {
+        return cidadeService.inserir(cidade);
     }
 
     @PutMapping("/")
-    public Categoria alterar(@RequestBody Categoria categoria) {
-        return categoriaService.alterar(categoria);
+    public Cidade alterar(@RequestBody Cidade cidade) {
+        return cidadeService.alterar(cidade);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
-        categoriaService.excluir(id);
+        cidadeService.excluir(id);
         return ResponseEntity.ok().build();
     }
 

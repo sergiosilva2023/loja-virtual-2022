@@ -6,9 +6,9 @@ import lombok.Data;
 
 
 @Entity
-@Table(name= "marcas")
+@Table(name= "permissao")
 @Data
-public class Marcas {
+public class Permissao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,7 +16,6 @@ public class Marcas {
     private Long id;
 
     private String nome;
-    private String sigla;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
     @Temporal(TemporalType.TIMESTAMP)

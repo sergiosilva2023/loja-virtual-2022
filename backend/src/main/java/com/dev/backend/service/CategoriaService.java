@@ -19,13 +19,13 @@ public class CategoriaService {
     }
 
     public Categoria inserir(Categoria categoria) {
-        categoria.setDataCriacao(new Date(0));
+        categoria.setDataCriacao(new Date());
         Categoria categoriaNova = categoriaRepository.saveAndFlush(categoria);
         return categoriaNova;
     }
 
     public Categoria alterar(Categoria categoria) {
-        categoria.setDataAtualizacao(new Date(0));
+        categoria.setDataAtualizacao(new Date());
         return categoriaRepository.saveAndFlush(categoria);
     }
 

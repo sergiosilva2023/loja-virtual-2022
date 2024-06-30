@@ -3,9 +3,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.dev.backend.entity.Categoria;
-import com.dev.backend.service.CategoriaService;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.dev.backend.entity.ProdutoImagens;
+import com.dev.backend.service.ProdutoImagensService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,30 +17,30 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/api/categoria")
-public class CategoriaController {
+@RequestMapping("/api/produtoImagens")
+public class ProdutoImagensController {
 
     @Autowired
-    private CategoriaService categoriaService;
+    private ProdutoImagensService produtoImagensService;
 
     @GetMapping("/")
-    public List<Categoria> buscarTodos() {
-        return categoriaService.buscarTodos();
+    public List<ProdutoImagens> buscarTodos() {
+        return produtoImagensService.buscarTodos();
     }
 
     @PostMapping("/")
-    public Categoria inserir(@RequestBody Categoria categoria) {
-        return categoriaService.inserir(categoria);
+    public ProdutoImagens inserir(@RequestParam("idProduto") Long idProduto, @RequestParam("file") MultipartFile file) {
+        return produtoImagensService.inserir(idProduto, file);
     }
 
     @PutMapping("/")
-    public Categoria alterar(@RequestBody Categoria categoria) {
-        return categoriaService.alterar(categoria);
+    public ProdutoImagens alterar(@RequestBody ProdutoImagens ProdutoImagens) {
+        return produtoImagensService.alterar(ProdutoImagens);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
-        categoriaService.excluir(id);
+        produtoImagensService.excluir(id);
         return ResponseEntity.ok().build();
     }
 
